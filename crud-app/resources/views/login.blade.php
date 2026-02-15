@@ -19,7 +19,7 @@
                         <x-input-field type="password" name="password" label="Password" />
 
                         <button type="submit"
-                            class="py-2 px-3 bg-white rounded-full text-black font-bold mt-3">Login</button>
+                            class="py-2 px-3 bg-white rounded-full text-black font-bold mt-3 cursor-pointer">Login</button>
 
                         <div class="text-center">
                             <p>Don't have an account? <a href="{{ route('register') }}"

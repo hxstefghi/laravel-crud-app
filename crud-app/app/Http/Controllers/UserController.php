@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoreRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -19,15 +21,19 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('register');
+        // return view('register');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        User::create($validated);
+
+        return redirect()->route('login');
     }
 
     /**

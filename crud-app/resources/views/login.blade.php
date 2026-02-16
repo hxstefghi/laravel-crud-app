@@ -11,7 +11,8 @@
             </div>
 
             <div class="mx-auto max-w-md w-[100%]">
-                <form action="" method="POST">
+                <form action="{{ route('login-auth') }}" method="POST">
+                    @csrf
                     <div class="flex flex-col space-y-3">
 
                         <x-input-field type="email" name="email" label="Email Address" />

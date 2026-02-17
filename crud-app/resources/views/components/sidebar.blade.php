@@ -42,8 +42,10 @@
             C
         </div>
         <div>
-            <div class="font-bold">Christian Catuday</div>
-            <div class="text-gray-400 text-sm">@hxstee</div>
+            @if (!empty($user))
+                <div class="font-bold">{{ $user->name }}</div>
+                <div class="text-gray-400 text-sm">@hxstee</div>
+            @endif
         </div>
     </div>
 </aside>

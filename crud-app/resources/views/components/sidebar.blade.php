@@ -26,10 +26,13 @@
                     Post
                 </button>
 
-                <button
-                    class="w-full mt-3 py-3 rounded-full bg-red-500 text-white font-bold text-lg hover:bg-red-400 transition">
-                    Logout
-                </button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                        class="w-full mt-3 py-3 rounded-full bg-red-500 text-white font-bold text-lg hover:bg-red-400 transition cursor-pointer">
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
     </div>

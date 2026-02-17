@@ -14,6 +14,7 @@ Route::get('/home', function () {
 
 // authentication
 Route::post('/login', [AuthController::class, 'login'])->name('login-auth');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('user', UserController::class);
 

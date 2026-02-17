@@ -5,16 +5,17 @@
             <h2 class="text-xl font-bold">Create Post</h2>
             <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
         </div>
-        <form>
+        <form action="{{ route('post.store') }}" method="POST">
+            @csrf
             <div class="flex space-x-3">
                 <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-lg font-bold">
                     C
                 </div>
 
-                <textarea class="w-full focus:outline-none p-2 mb-4" rows="4" placeholder="What's happening?"></textarea>
+                <x-textarea-field name="body" textarea="What's on your mind?" />
             </div>
             <div class="flex justify-end">
-                <button type="submit" class="px-4 py-2 bg-white text-black rounded-full">Post</button>
+                <button type="submit" class="px-4 py-2 bg-white text-black font-bold rounded-full">Post</button>
             </div>
         </form>
     </div>

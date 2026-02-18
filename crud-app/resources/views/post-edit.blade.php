@@ -14,9 +14,9 @@
                 <div class="w-full max-w-2xl px-4 py-8">
                     {{-- Post --}}
                     <div class="flex space-x-3 items-center">
-                        <a href="{{ route('home') }}" class="text-gray-400 text-sm">
+                        <a href="{{ route('post.show', $post->id) }}" class="text-gray-400 text-sm">
                             < Back</a>
-                                <h3 class="text-white font-bold text-2xl">Post</h3>
+                                <h3 class="text-white font-bold text-2xl">Edit Post</h3>
                     </div>
                     <div class="flex items-start space-x-3 mt-4">
                         <div
@@ -33,17 +33,18 @@
                                 <p class="text-gray-400 text-sm">
                                     {{ $post->updated_at->diffForHumans() }}
                                 </p>
-
-                                <div class="flex space-x-3 items-center mt-2">
-                                    <a href="{{ route('post.edit', $post->id) }}"
-                                        class="text-sm text-green-500">Edit</a>
-                                    <a href="#" class="text-sm text-red-500">Delete</a>
-                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <p class="mt-4">{{ $post->body }}</p>
+                    <form action="{{ route('post.update', $post->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <x-textarea-field name="body" textarea="Body" :value="old('body', $post->body)" />
+
+                        <button class="px-5 py-2 rounded-full font-bold bg-white text-black cursor-pointer mt-3">Edit
+                            Post</button>
+                    </form>
                 </div>
             </main>
         </div>
@@ -51,14 +52,6 @@
 
     {{-- Post Modal --}}
     <x-post-modal />
-
-    @if ($errors->any())
-        <script>
-            window.onload = function() {
-                openModal();
-            }
-        </script>
-    @endif
 
     <script>
         function openModal() {

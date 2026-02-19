@@ -8,12 +8,14 @@
         <div class="flex flex-col justify-between">
             <!-- Nav -->
             <nav class="flex flex-col space-y-2">
-                <a href="#" class="flex items-center space-x-4 px-4 py-2 rounded-full bg-gray-900 font-bold">
+                <a href="{{ route('home') }}"
+                    class="flex items-center space-x-4 px-4 py-2 rounded-full bg-gray-900 font-bold">
                     <!-- Replace with icon -->
 
                     <span>Home</span>
                 </a>
-                <a href="#" class="flex items-center space-x-4 px-4 py-2 rounded-full hover:bg-gray-800">
+                <a href="{{ route('user.show', $user->id) }}"
+                    class="flex items-center space-x-4 px-4 py-2 rounded-full hover:bg-gray-800">
 
                     <span>Profile</span>
                 </a>

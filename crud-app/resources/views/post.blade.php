@@ -37,7 +37,12 @@
                                 <div class="flex space-x-3 items-center mt-2">
                                     <a href="{{ route('post.edit', $post->id) }}"
                                         class="text-sm text-green-500">Edit</a>
-                                    <a href="#" class="text-sm text-red-500">Delete</a>
+                                    <form action="{{ route('post.destroy', $post->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="text-sm text-red-500">Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

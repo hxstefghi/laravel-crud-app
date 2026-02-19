@@ -41,7 +41,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('profile', ['user' => $user]);
+        $posts = $user->post()->latest()->get();
+        return view('profile', ['user' => $user, 'posts' => $posts]);
     }
 
     /**

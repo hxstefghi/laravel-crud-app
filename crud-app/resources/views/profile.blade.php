@@ -23,7 +23,9 @@
                                 <p class="font-bold text-3xl">{{ $user->name }}</p>
                                 <p class="text-gray-400">@hxstee</p>
                                 <p>{{ $user->email }}</p>
-                                <a href="#" class="py-2 px-3 font-bold bg-white text-black rounded-full mt-3">Edit
+
+                                <a href="{{ route('user.edit', $user->id) }}"
+                                    class="py-2 px-3 font-bold bg-white text-black rounded-full mt-3">Edit
                                     Profile</a>
                             </div>
                         </div>

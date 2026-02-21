@@ -35,14 +35,19 @@
                                 </p>
 
                                 <div class="flex space-x-3 items-center mt-2">
-                                    <a href="{{ route('post.edit', $post->id) }}"
-                                        class="text-sm text-green-500">Edit</a>
-                                    <form action="{{ route('post.destroy', $post->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
+                                    @can('update', $post)
+                                        <a href="{{ route('post.edit', $post->id) }}"
+                                            class="text-sm text-green-500">Edit</a>
+                                    @endcan
 
-                                        <button type="submit" class="text-sm text-red-500">Delete</button>
-                                    </form>
+                                    @can('delete', $post)
+                                        <form action="{{ route('post.destroy', $post->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="text-sm text-red-500">Delete</button>
+                                        </form>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
